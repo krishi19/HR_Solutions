@@ -1,17 +1,17 @@
-// ignore_for_file: deprecated_member_use
+
 
 import 'package:flutter/material.dart';
-import 'package:hr_solutions/screens/auth/forgot_password.dart';
-import 'package:hr_solutions/screens/auth/register.dart';
+import 'package:hr_solutions/screens/auth/login.dart';
+import 'package:hr_solutions/screens/jobs/jobs_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class NewPasswordPage extends StatefulWidget {
+  const NewPasswordPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<NewPasswordPage> createState() => _NewPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _NewPasswordPageState extends State<NewPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 87,
                 ),
                 const Text(
-                  'Welcome',
+                  'Reset password',
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 5,
                 ),
                 const Text(
-                  'Log in to your account',
+                  'Reset your account password',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
@@ -49,9 +49,9 @@ class _LoginPageState extends State<LoginPage> {
         // crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 224, 0),
+                      padding: EdgeInsets.fromLTRB(50, 0, 222, 0),
                       child: Text(
-                        'Email Address',
+                        'New Password',
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -73,21 +73,20 @@ class _LoginPageState extends State<LoginPage> {
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Enter your Email address'),
+                            hintText: 'Enter new password'),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: 15
                 ),
-                Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
+                 Column(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 260, 0),
+                      padding: EdgeInsets.fromLTRB(50,0, 163, 0),
                       child: Text(
-                        'Password',
+                        'Confirm New Password',
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -108,44 +107,28 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Enter your Password'),
+                            hintText: 'Re-enter your new Password'),
                       ),
                     ),
                   ),
+                ),
+                
+              const  SizedBox(
+                  height: 40
                 ),
                
-                // Container(alignment: Alignment.centerRight,
-                // child: 
-                   
-                  
-                //   ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap: () { Navigator.push(context, MaterialPageRoute(builder:(context) => const  ForgotPasswordPage()));},
-                     
-                    child: const Padding(
-                      padding: EdgeInsets.only(right: 44),
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 11,
-                ),
                Container(
                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
                  width: double.infinity,
                  child: RaisedButton(
-                   onPressed:() =>print('Login Button Pressed'),
+                   onPressed:() {
+                    // Navigator.push(context, MaterialPageRoute(builder:(context) => const R()));
+                  },
                    padding: const EdgeInsets.all(15.0),
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10.0)),
                      color: const Color(0xff202C7B),
-                     child: const Text('Log in',
+                     child: const Text('Reset Password',
                      style: TextStyle(
                        color: Colors.white,
                        fontSize: 16,
@@ -156,38 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                   // ignore: avoid_print
                 
                  ),
-                 const SizedBox(
-                   height: 161,
-                 ),
-                GestureDetector(
+              
                  
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder:(context) => const RegisterPage()));
-                  },
-                  child: RichText(
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                            text: 'Not a member?',
-                      style: TextStyle(
-                        color: Color(0xff676767),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500
-                      )
-                        ),
-                        TextSpan(
-                          text: 'Register Now',
-                          style: TextStyle(
-                            color: Color(0xff202C7B),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold
-                          )
-                        )
-                      ]
-                    
-                    ) ,
-                    ),
-                )
+                 
               ] )
           
               

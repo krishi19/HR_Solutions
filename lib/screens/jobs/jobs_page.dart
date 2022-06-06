@@ -66,7 +66,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hr_solutions/screens/jobs/jobs_for_you.dart';
-import 'package:hr_solutions/screens/jobs/search.dart';
+import 'package:hr_solutions/screens/jobs/jobs_search_page.dart';
+
 import 'package:line_icons/line_icons.dart';
 
 class JobsPage extends StatelessWidget {
@@ -85,9 +86,8 @@ class JobsPage extends StatelessWidget {
         ),
         backgroundColor: const Color(0xffE5E5E5),
         body: SingleChildScrollView(
-          primary: false,
-          child: Column(
-            children: [
+            primary: false,
+            child: Column(children: [
               Container(
                   height: 40,
                   width: 330,
@@ -104,6 +104,7 @@ class JobsPage extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: TextFormField(
+
                             autofocus: true,
                             decoration: const InputDecoration(
                                 fillColor: Colors.white,
@@ -114,6 +115,7 @@ class JobsPage extends StatelessWidget {
                                 suffixIcon:
                                     Icon(Icons.tune, color: Color(0xff202C7B))),
                           ),
+                          
                         ),
                       ])),
               const Padding(
@@ -233,8 +235,8 @@ class JobsPage extends StatelessWidget {
                                     child: CircleAvatar(
                                       backgroundColor: Colors.white,
                                       radius: 30,
-                                      child:
-                                          Image.asset('assets/icons/logo 1.png'),
+                                      child: Image.asset(
+                                          'assets/icons/logo 1.png'),
                                     ),
                                   ),
                                   Padding(
@@ -250,20 +252,23 @@ class JobsPage extends StatelessWidget {
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 18,
-                                                    fontWeight: FontWeight.w600)),
+                                                    fontWeight:
+                                                        FontWeight.w600)),
                                             TextSpan(
                                                 text: 'Creatu Developers\n',
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 14,
-                                                    fontWeight: FontWeight.w400)),
+                                                    fontWeight:
+                                                        FontWeight.w400)),
                                             TextSpan(
                                                 text:
                                                     'Tinkune, Koteshwor, Kathmandu\n',
                                                 style: TextStyle(
                                                     color: Color(0xff6A6A6A),
                                                     fontSize: 14,
-                                                    fontWeight: FontWeight.w400)),
+                                                    fontWeight:
+                                                        FontWeight.w400)),
                                             TextSpan(
                                                 text: 'Posted 5hrs ago',
                                                 style: TextStyle(
@@ -272,7 +277,8 @@ class JobsPage extends StatelessWidget {
 
                                                     color: Color(0xff6A6A6A),
                                                     fontSize: 14,
-                                                    fontWeight: FontWeight.w400)),
+                                                    fontWeight:
+                                                        FontWeight.w400)),
                                           ]),
                                         ),
                                       ),
@@ -287,7 +293,8 @@ class JobsPage extends StatelessWidget {
                                                   BorderRadius.circular(5)),
                                           child: const Text(
                                             'View Details',
-                                            style: TextStyle(color: Colors.white),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                         ),
                                       )
@@ -297,33 +304,131 @@ class JobsPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                        separatorBuilder: (context, index) => SizedBox(width: 10),
+                        separatorBuilder: (context, index) =>
+                            SizedBox(width: 10),
                         itemCount: 4)),
               ),
               const SizedBox(
                 height: 10,
               ),
-             Container(
-               padding: const EdgeInsets.only(right: 236),
-               child: const Text('Jobs for you', style: TextStyle(
-                 fontWeight: FontWeight.w600, color: Colors.black, fontSize: 20
-               ),),
-
-             ), 
-             SizedBox(
-               height: 5,
-             ),
-              Row(
-                children: [
+              Container(
+                padding: const EdgeInsets.only(right: 236),
+                child: const Text(
+                  'Jobs for you',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      fontSize: 20),
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 665,
+                color: Colors.white,
+                child: ListView.separated(itemBuilder: ((context, index) => 
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  
+                  Column(children: [
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 30,
+                        child: Image.asset('assets/icons/logo 1.png'),
+                      ),
+                    ),
+                  ]),
+                  const SizedBox(
+                    width: 7,
+                  ),
                   Column(
-                    children: [],
+                    children: [
+                      RichText(
+                        text: const TextSpan(children: [
+                          TextSpan(
+                              text: 'Backend Developer\n',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500)),
+                          TextSpan(
+                              text: 'Hands Company\n',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400)),
+                          TextSpan(
+                              text: 'Handiland, kathmandu\n',
+                              style: TextStyle(
+                                  color: Color(0xff6A6A6A),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400)),
+                          TextSpan(
+                              text: 'Posted 5hrs ago  10Applicants\n',
+                              style: TextStyle(
+                                  height: 1.3,
+                                  color: Color(0xff6A6A6A),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400)),
+                        ]),
+                      )
+                    ],
+                  ),
+                  Column(
+                    
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 60),
+                        child: Icon(Icons.favorite_border_outlined),
+                      )
+                    ],
                   )
-                ],
-              )
-           
-            ],
-          ),
-          
-        ));
+                ])), separatorBuilder: (context, index) =>const Divider(
+   thickness: 2, 
+   indent: 30, 
+   endIndent: 30, 
+   color: Color(0xff202C7B), 
+   height: 10
+ ), itemCount:6),
+              ), 
+             SizedBox(
+                                        width: 130,
+                                        child: RaisedButton(
+                                          color: const Color(0xff5969AA),
+                                          onPressed: () {
+                                              Navigator.push(context, MaterialPageRoute(builder:(context) => const  JobsSearchPage()));
+                                          },
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: const Text(
+                                            'View All',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      )
+              
+            ]),
+            
+            
+
+
+  
+
+
+
+
+
+
+
+
+            
+            )
+            );
   }
 }
