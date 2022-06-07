@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hr_solutions/common/information_page.dart';
+import 'package:hr_solutions/screens/accounts/account_settings.dart';
+import 'package:hr_solutions/screens/information_page.dart';
 import 'package:hr_solutions/screens/auth/login.dart';
+import 'package:hr_solutions/screens/jobs/job_applied.dart';
 import 'package:hr_solutions/screens/jobs/jobs_details.dart';
+import 'package:hr_solutions/screens/jobs/saved_jobs.dart';
 import 'package:hr_solutions/screens/notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'screens/blogs_page.dart';
+import 'screens/screening_test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +38,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: const JobsPage()
-        home: InformationPage(),
+        home: ApplicationPage(),
       ),
     );
   }

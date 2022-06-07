@@ -34,18 +34,31 @@ class NotificationPage extends StatelessWidget {
         const  SizedBox(
             height: 2,
           ),
-       const  ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/icons/logo 1.png'),
-                 backgroundColor: Colors.white,
-               ),
-       
+         Row( crossAxisAlignment: CrossAxisAlignment.start,
+               children: [Column(
+                 children: [
+                    CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        radius: 30,
+                                        child: Image.asset(
+                                            'assets/icons/logo 1.png'),
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text('Creatu Developers have posted a new job: UX/UI Designer Top Level'),
+                                        ],
+                                      )
+                 ],
+               )],
              ),
+         ]  )
+         
+           );
+      
             
           
-        ]
-      ),
-    );
+        
+      
+    
   }
 }
