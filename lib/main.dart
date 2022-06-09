@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hr_solutions/screens/accounts/account_settings.dart';
+import 'package:hr_solutions/screens/article_page.dart';
 import 'package:hr_solutions/screens/information_page.dart';
 import 'package:hr_solutions/screens/auth/login.dart';
 import 'package:hr_solutions/screens/jobs/job_applied.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: const JobsPage()
-        home: ApplicationPage(),
+        home: SettingsPage(),
       ),
     );
   }
