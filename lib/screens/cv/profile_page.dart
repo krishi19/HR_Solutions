@@ -2,6 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hr_solutions/screens/cv/cv_page.dart';
+import 'package:hr_solutions/screens/jobs/job_applied.dart';
+
+import '../accounts/account_settings.dart';
+import '../jobs/saved_jobs.dart';
+import '../screening_test.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -52,39 +58,63 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 365.h,
               child: Column(
                 children: [
-                  ProfileTile(
-                    image: 'assets/icons/CVIcon.png',
-                    title: 'Your Cv',
-                    // onTap: (){},
+                  GestureDetector(
+                    child: ProfileTile(
+                      image: 'assets/icons/CVIcon.png',
+                      title: 'Your Cv',
+                      onTap: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CVPage()));
+                        
+                      },
+                    ),
                   ),
                   Divider(),
-                   ProfileTile(
+                  ProfileTile(
                     image: 'assets/icons/application.png',
                     title: 'Your Applications',
-                    // onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ApplicationPage()));
+                    },
                   ),
                   Divider(),
-
-                   ProfileTile(
+                  ProfileTile(
                     image: 'assets/icons/savedjobs.png',
                     title: 'Your saved Jobs',
-                    // onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SavedJobsPage()));
+                    },
                   ),
                   Divider(),
-
-                   ProfileTile(
+                  ProfileTile(
                     image: 'assets/icons/screening_test.png',
                     title: 'Screening Test',
-                    // onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ScreeningPage()));
+                    },
                   ),
                   Divider(),
-
-                   ProfileTile(
+                  ProfileTile(
                     image: 'assets/icons/settings.png',
                     title: 'Account Settings',
-                    // onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()));
+                    },
                   ),
-                
                 ],
               ),
             ),
@@ -137,18 +167,18 @@ class ProfileTile extends StatelessWidget {
     Key? key,
     required this.image,
     required this.title,
-    // required this.onTap,
+    required this.onTap,
   }) : super(key: key);
   final String image;
   final String title;
-  // final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 0),
       child: ListTile(
         leading: Image.asset(image),
-        // onTap: onTap,
+        onTap: onTap,
         title: Text(
           title,
           style: TextStyle(
