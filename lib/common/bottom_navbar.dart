@@ -73,7 +73,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.cases_rounded),
           
-            label: 'Courses',
+            label: 'Jobs',
           ),
           BottomNavigationBarItem(
             label: 'Info',
