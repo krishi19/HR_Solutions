@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:hr_solutions/common/bottom_navbar.dart';
-import 'package:hr_solutions/screens/auth/login.dart';
-import 'package:hr_solutions/screens/jobs/jobs_page.dart';
+
+import '../../modules/auth/screens/login.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -27,20 +27,14 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           const Text(
             'Join Us',
-            style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff202C7B)),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, color: Color(0xff202C7B)),
           ),
           const SizedBox(
             height: 5,
           ),
           const Text(
             'Sign up as a member',
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff202C7B)),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400, color: Color(0xff202C7B)),
           ),
           const SizedBox(
             height: 67,
@@ -52,10 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: EdgeInsets.fromLTRB(50, 0, 224, 0),
                 child: Text(
                   'Email Address',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff202C7B)),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff202C7B)),
                 ),
               )
             ],
@@ -63,17 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(12)),
+              decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(12)),
               child: const Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: TextField(
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter your Email address'),
+                  decoration: InputDecoration(border: InputBorder.none, hintText: 'Enter your Email address'),
                 ),
               ),
             ),
@@ -88,10 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: EdgeInsets.fromLTRB(50, 0, 201, 0),
                 child: Text(
                   'Create Password',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff202C7B)),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff202C7B)),
                 ),
               )
             ],
@@ -99,15 +82,11 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(12)),
+              decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(12)),
               child: const Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: TextField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none, hintText: 'Create a Password'),
+                  decoration: InputDecoration(border: InputBorder.none, hintText: 'Create a Password'),
                 ),
               ),
             ),
@@ -123,10 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: EdgeInsets.fromLTRB(50, 0, 190, 0),
                 child: Text(
                   'Confirm Password',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff202C7B)),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff202C7B)),
                 ),
               )
             ],
@@ -134,16 +110,11 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(12)),
+              decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(12)),
               child: const Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: TextField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Confirm your Password'),
+                  decoration: InputDecoration(border: InputBorder.none, hintText: 'Confirm your Password'),
                 ),
               ),
             ),
@@ -156,30 +127,10 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: const EdgeInsets.only(right: 40),
               child: RichText(
                 text: const TextSpan(children: [
-                  TextSpan(
-                      text: 'By signing up, you are agreeing to the \n',
-                      style: TextStyle(
-                          color: Color(0xff676767),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500)),
-                  TextSpan(
-                      text: 'Terms and Conditions',
-                      style: TextStyle(
-                          color: Color(0xff202C7B),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500)),
-                  TextSpan(
-                      text: 'and',
-                      style: TextStyle(
-                          color: Color(0xff676767),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500)),
-                  TextSpan(
-                      text: 'Privacy Policy.',
-                      style: TextStyle(
-                          color: Color(0xff202C7B),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500)),
+                  TextSpan(text: 'By signing up, you are agreeing to the \n', style: TextStyle(color: Color(0xff676767), fontSize: 14, fontWeight: FontWeight.w500)),
+                  TextSpan(text: 'Terms and Conditions', style: TextStyle(color: Color(0xff202C7B), fontSize: 14, fontWeight: FontWeight.w500)),
+                  TextSpan(text: 'and', style: TextStyle(color: Color(0xff676767), fontSize: 14, fontWeight: FontWeight.w500)),
+                  TextSpan(text: 'Privacy Policy.', style: TextStyle(color: Color(0xff202C7B), fontSize: 14, fontWeight: FontWeight.w500)),
                 ]),
               ),
             ),
@@ -194,12 +145,10 @@ class _RegisterPageState extends State<RegisterPage> {
             width: double.infinity,
             child: RaisedButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
               },
               padding: const EdgeInsets.all(15.0),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
               color: const Color(0xff202C7B),
               child: const Text(
                 'Sign Up',
@@ -219,25 +168,12 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const BottomNavPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavPage()));
             },
             child: RichText(
               text: const TextSpan(children: [
-                TextSpan(
-                    text: 'Already a member?',
-                    style: TextStyle(
-                        color: Color(0xff676767),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: 'Login',
-                    style: TextStyle(
-                        color: Color(0xff202C7B),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold))
+                TextSpan(text: 'Already a member?', style: TextStyle(color: Color(0xff676767), fontSize: 16, fontWeight: FontWeight.w500)),
+                TextSpan(text: 'Login', style: TextStyle(color: Color(0xff202C7B), fontSize: 16, fontWeight: FontWeight.bold))
               ]),
             ),
           )
