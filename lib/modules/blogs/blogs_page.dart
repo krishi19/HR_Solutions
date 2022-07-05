@@ -88,8 +88,8 @@ class _BlogPageState extends State<BlogPage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(30, 15, 253, 10),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(30, 15, 253, 10),
             child: Text('All Articles', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),
           ),
             Container(

@@ -25,22 +25,29 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void registerUser({required String email, required String password, required String confirmPassword}) async {
+  Future<void> signUpUser(
+      {required String email,
+      required String password,
+      required String confirmPassword}) async {
     if (password != confirmPassword) {
       BotToast.showText(text: 'Password and confirm password doesnot matched.');
       emit(AuthState());
     } else {
       BotToast.showLoading();
       try {
-        final userModel = await ar.loginUser(email: email, password: password);
-        emit(AuthState(userModel: userModel));
-        BotToast.showText(text: 'Login successful.');
+        await ar.signUpUser(
+            email: email, password: password, confirmpassword: confirmPassword,);
+        BotToast.showText(text: 'User registered successfully, thank you.');
         BotToast.closeAllLoading();
+        emit(AuthState(
+          isRegister: true,
+        ));
       } on DioError catch (e) {
-        mPrint('error login login: $e');
+        mPrint('error on register: $e');
+        BotToast.showText(text: 'Error in register!');
 
         BotToast.closeAllLoading();
-        BotToast.showText(text: e.message);
+        emit(AuthState());
       }
     }
   }
@@ -48,6 +55,7 @@ class AuthCubit extends Cubit<AuthState> {
 
 class AuthState {
   final UserModel? userModel;
+  final bool isRegister;
 
-  AuthState({this.userModel});
+  AuthState({this.userModel, this.isRegister = false});
 }

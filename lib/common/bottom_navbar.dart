@@ -30,7 +30,7 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:hr_solutions/screens/cv/cv_page.dart';
-import 'package:hr_solutions/screens/information_page.dart';
+import 'package:hr_solutions/modules/information/information_page.dart';
 import 'package:hr_solutions/screens/jobs/jobs_details.dart';
 import 'package:hr_solutions/screens/notifications.dart';
 import 'package:hr_solutions/screens/screening_test.dart';
@@ -51,8 +51,6 @@ class _BottomNavPageState extends State<BottomNavPage> {
     const JobsPage(),
     const InformationPage(),
     const NotificationPage(),
-   
- 
     const ProfilePage(),
   ];
 

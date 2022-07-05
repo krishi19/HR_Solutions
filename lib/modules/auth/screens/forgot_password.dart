@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hr_solutions/screens/auth/reset_password.dart';
+
+// import '../../../screens/reset_password.dart';
+import 'package:hr_solutions/modules/auth/screens/reset_password.dart';
+
+
+
+
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);

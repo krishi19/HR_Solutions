@@ -21,29 +21,29 @@ class UserModel {
 
 class User {
   int? id;
-  Null? name;
-  Null? phoneNo;
+  String? name;
+  int? phoneNo;
   String? email;
-  Null? image;
-  Null? country;
-  Null? location;
-  Null? dob;
-  Null? age;
-  Null? gender;
+  String? image;
+  String? country;
+  String? location;
+  String? dob;
+  int? age;
+  String? gender;
   int? userStatus;
   int? isBanned;
-  Null? maritalStatus;
-  Null? height;
-  Null? education;
-  Null? language;
-  Null? religion;
-  Null? gothra;
-  Null? caste;
-  Null? employmentType;
-  Null? annualIncome;
-  Null? interest;
-  Null? verificationCode;
-  Null? slug;
+  String? maritalStatus;
+  String? height;
+  String? education;
+   String? language;
+   String? religion;
+   String? gothra;
+   String? caste;
+   String? employmentType;
+   String? annualIncome;
+   String? interest;
+   String? verificationCode;
+   String? slug;
   String? createdAt;
   String? updatedAt;
 
@@ -105,9 +105,9 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = {};
     data['id'] = this.id;
-    data['name'] = this.name;
+    data['name'] = name;
     data['phone_no'] = this.phoneNo;
     data['email'] = this.email;
     data['image'] = this.image;

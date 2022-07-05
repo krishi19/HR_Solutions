@@ -65,7 +65,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hr_solutions/screens/jobs/jobs_for_you.dart';
+import 'package:hr_solutions/modules/jobs/model/jobs_model.dart';
+import 'package:hr_solutions/modules/jobs/repository/jobs_repo.dart';
 import 'package:hr_solutions/screens/jobs/jobs_search_page.dart';
 
 import 'package:line_icons/line_icons.dart';
@@ -77,6 +78,10 @@ class JobsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    JobsRepository().getAllJobs().then((data) {
+      // ignore: avoid_print
+      print('jobs all daata : $data');
+    });
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -88,7 +93,7 @@ class JobsPage extends StatelessWidget {
         ),
         backgroundColor: const Color(0xffE5E5E5),
         body: SingleChildScrollView(
-          primary: false,
+          primary: true,
           child: Column(children: [
             Container(
                 height: 40,
@@ -117,11 +122,13 @@ class JobsPage extends StatelessWidget {
                                   onTap: () {
                                     showModalBottomSheet(
                                       isDismissible: false,
-                                      isScrollControlled: true,                                  
+                                      isScrollControlled: true,
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),),),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          topRight: Radius.circular(20),
+                                        ),
+                                      ),
                                       builder: (BuildContext context) {
                                         return CustomBottomSheet();
                                       },
@@ -230,6 +237,7 @@ class JobsPage extends StatelessWidget {
               child: SizedBox(
                   height: 240,
                   child: ListView.separated(
+                      primary: false,
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Container(
@@ -334,10 +342,28 @@ class JobsPage extends StatelessWidget {
               height: 5,
             ),
             Container(
-              height: 665,
               color: Colors.white,
-              child: ListView.separated(
-                  itemBuilder: ((context, index) => Row(
+              child: FutureBuilder<List<JobsModel>>(
+                  future: JobsRepository().getAllJobs(),
+                  builder: (context, jobSnap) {
+                    List<JobsModel> jobsList = [];
+                    if (jobSnap.hasData) {
+                      if (jobSnap.data != null) {
+                        jobsList = jobSnap.data ?? [];
+                      }
+                    }
+                    if (jobsList.isEmpty) {
+                      return Center(
+                        child: Text('No data!'),
+                      );
+                    }
+                    return ListView.separated(
+                      primary: false,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        print(jobsList[0].experience ?? '' + 'hasj');
+                        final job = jobsList[index];
+                        return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(children: [
@@ -356,9 +382,9 @@ class JobsPage extends StatelessWidget {
                             Column(
                               children: [
                                 RichText(
-                                  text: const TextSpan(children: [
+                                  text: TextSpan(children: [
                                     TextSpan(
-                                        text: 'Backend Developer\n',
+                                        text: '${job.jobTitle}\n',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 18,
@@ -370,7 +396,7 @@ class JobsPage extends StatelessWidget {
                                             fontSize: 16,
                                             fontWeight: FontWeight.w400)),
                                     TextSpan(
-                                        text: 'Handiland, kathmandu\n',
+                                        text: '${job.location}\n',
                                         style: TextStyle(
                                             color: Color(0xff6A6A6A),
                                             fontSize: 16,
@@ -394,14 +420,18 @@ class JobsPage extends StatelessWidget {
                                 )
                               ],
                             )
-                          ])),
-                  separatorBuilder: (context, index) => const Divider(
-                      thickness: 2,
-                      indent: 30,
-                      endIndent: 30,
-                      color: Color(0xff202C7B),
-                      height: 10),
-                  itemCount: 6),
+                          ],
+                        );
+                      },
+                      separatorBuilder: (context, index) => const Divider(
+                          thickness: 2,
+                          indent: 30,
+                          endIndent: 30,
+                          color: Color(0xff202C7B),
+                          height: 10),
+                      itemCount: jobsList.length > 10 ? 10 : jobsList.length,
+                    );
+                  }),
             ),
             SizedBox(
               width: 130,
@@ -422,7 +452,6 @@ class JobsPage extends StatelessWidget {
               ),
             )
           ]),
-          
         ));
   }
 }

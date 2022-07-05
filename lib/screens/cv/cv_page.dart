@@ -1,7 +1,5 @@
-// ignore_for_file: deprecated_member_use, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hr_solutions/common/edit_cv.dart';
 import 'package:hr_solutions/screens/cv/profile_page.dart';
 
@@ -46,7 +44,7 @@ class _CVPageState extends State<CVPage> {
                showModalBottomSheet(
                                       isDismissible: false,
                                       isScrollControlled: true,                                  
-                                      shape: RoundedRectangleBorder(
+                                      shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.only(
                                               topLeft: Radius.circular(20),
                                               topRight: Radius.circular(20),),),
@@ -278,7 +276,7 @@ class _CVPageState extends State<CVPage> {
                       shrinkWrap: true,
                       primary: false,
                       itemBuilder: ((context, index) => index == 3
-                          ? Divider()
+                          ? const Divider()
                           : Row(
                             children: [
                               Column(children: [

@@ -132,24 +132,24 @@ class _InformationPageState extends State<InformationPage> {
               ),
             ),
           ),
-     const   SizedBox(height: 10,),
-            SizedBox(
-                                        width: 130,
-                                        child: RaisedButton(
-                                          color: const Color(0xff5969AA),
-                                          onPressed: () {
-                                           
-                                          },
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5)),
-                                          child: const Text(
-                                            'View All',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        ),
-                                      )
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: 130,
+            child: RaisedButton(
+              color: const Color(0xff5969AA),
+              onPressed: () {
+                
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+              child: const Text(
+                'View All',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          )
         ])));
   }
 }

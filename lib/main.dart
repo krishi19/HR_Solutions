@@ -2,8 +2,13 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hr_solutions/modules/auth/cubit/auth_cubit.dart';
-import 'package:hr_solutions/modules/auth/screens/login.dart';
+import 'package:hr_solutions/modules/blogs/blogs_page.dart';
+import 'package:hr_solutions/screens/cv/cv_page.dart';
+import 'package:hr_solutions/screens/cv/profile_page.dart';
+
+import 'modules/auth/screens/login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +39,12 @@ class MyApp extends StatelessWidget {
               return child;
             },
             navigatorObservers: [BotToastNavigatorObserver()],
+            supportedLocales: [
+              Locale('en'),
+            ],
+            localizationsDelegates: [
+              FormBuilderLocalizations.delegate,
+            ],
             theme: ThemeData(
               // This is the theme of your application.
               //
